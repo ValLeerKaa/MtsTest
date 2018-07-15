@@ -3,15 +3,18 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import javax.jws.WebService;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @WebService
 public class MtsTestServer implements IContract {
 
-    private IDataStorage dbStorage = new DbStorage();
-    private IDataStorage fileStorage = new FileStorage();
     private ServerPrefs prefs;
     private ServerState serverState;
     private Logger logger;
+
+    private Set<IDataStorage> storages = new HashSet<>();
 
     /**
      * Конструктор.
@@ -21,6 +24,9 @@ public class MtsTestServer implements IContract {
         logger.info("Server started");
         serverState = new ServerState();
         serverState.setPaused(false).setClientRestartRequired(false).setActive(true);
+
+        storages.add(new DbStorage(logger));
+        storages.add(new FileStorage(logger));
     }
 
     @Override
@@ -30,8 +36,10 @@ public class MtsTestServer implements IContract {
     }
 
     @Override
-    public void sendRecord(ApprovedRecord record) {
-
+    public void sendRecord(List<String> record) {
+        logger.debug("Принята строка от клиента, сохранение...");
+        for (IDataStorage storage : storages)
+            storage.saveFields(record);
     }
 
     @Override

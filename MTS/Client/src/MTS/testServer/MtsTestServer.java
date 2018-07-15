@@ -1,6 +1,7 @@
 
 package MTS.testServer;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -61,7 +62,7 @@ public interface MtsTestServer {
     @Action(input = "http://testServer.MTS/MtsTestServer/sendRecordRequest", output = "http://testServer.MTS/MtsTestServer/sendRecordResponse")
     public void sendRecord(
         @WebParam(name = "arg0", targetNamespace = "")
-        ApprovedRecord arg0);
+        List<String> arg0);
 
     /**
      * 

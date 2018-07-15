@@ -113,14 +113,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ApprovedRecord }
-     * 
-     */
-    public ApprovedRecord createApprovedRecord() {
-        return new ApprovedRecord();
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RestartComplete }{@code >}}
      * 
      */

@@ -118,6 +118,8 @@ public class MtsTestClient
         {
             try {
                 List<List<String>> records = CsvProcessor.readCsv(newFile, fields);
+                for (List<String> record : records)
+                    service.sendRecord(record);
                 moveToArchive(newFile);
             }
             catch (Exception exc)
