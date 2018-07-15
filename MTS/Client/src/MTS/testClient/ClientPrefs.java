@@ -1,5 +1,7 @@
 package MTS.testClient;
 
+import MTS.Common.CsvProcessor;
+
 import java.io.*;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.InvalidPreferencesFormatException;
@@ -10,6 +12,7 @@ public class ClientPrefs {
     static final String DEFAULT_MS_INTERVAL = "5000";
     static final String DEFAULT_WORK_DIRECTORY = "d://temp";
     static final String DEFAULT_FILE_PATTERN = ".csv";
+    static final String DEFAULT_FIELDS_SEPARATED_BY_COMMA = "ALL;";
 
     private static Preferences preferences;
 
@@ -35,12 +38,18 @@ public class ClientPrefs {
         preferences.flush();
     }
 
+    /**
+     * Установка начальных значений.
+     * @throws Exception
+     */
     private void initPreferences() throws Exception{
         if (preferences==null) throw new Exception("no prefs");
         preferences.put("logPath", DEFAULT_LOG_PROPERTIES);
         preferences.put("interval", DEFAULT_MS_INTERVAL);
         preferences.put("workDir", DEFAULT_WORK_DIRECTORY);
         preferences.put("fileMask", DEFAULT_FILE_PATTERN);
+        preferences.put("fields", DEFAULT_FIELDS_SEPARATED_BY_COMMA);
+
         exportPrefs();
     }
 
@@ -67,4 +76,9 @@ public class ClientPrefs {
     {
         return preferences.get("fileMask", DEFAULT_FILE_PATTERN);
     }
+    public String getFields()
+    {
+        return preferences.get("fields", DEFAULT_FIELDS_SEPARATED_BY_COMMA);
+    }
+
 }

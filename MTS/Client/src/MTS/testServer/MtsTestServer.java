@@ -63,4 +63,13 @@ public interface MtsTestServer {
         @WebParam(name = "arg0", targetNamespace = "")
         ApprovedRecord arg0);
 
+    /**
+     * 
+     */
+    @WebMethod
+    @RequestWrapper(localName = "restartComplete", targetNamespace = "http://testServer.MTS/", className = "MTS.testServer.RestartComplete")
+    @ResponseWrapper(localName = "restartCompleteResponse", targetNamespace = "http://testServer.MTS/", className = "MTS.testServer.RestartCompleteResponse")
+    @Action(input = "http://testServer.MTS/MtsTestServer/restartCompleteRequest", output = "http://testServer.MTS/MtsTestServer/restartCompleteResponse")
+    public void restartComplete();
+
 }

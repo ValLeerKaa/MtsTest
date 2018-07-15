@@ -10,6 +10,8 @@
           <entry key="logPath" value="d://java//mtsclient//logs//log4j.properties"/>
           <entry key="interval" value="5000"/>
           <entry key="workDir" value="d://temp"/>
+          <entry key="fileMask" value=".csv"/>
+          <entry key="fields" value="0;1;2;3"/>
         </map>
       </node>
     </node>

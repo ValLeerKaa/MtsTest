@@ -10,4 +10,9 @@ public class ApprovedRecord {
         return record;
     };
 
+    public void addField(String field)
+    {
+        record.add(field);
+    }
+
 }

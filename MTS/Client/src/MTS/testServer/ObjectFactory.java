@@ -24,9 +24,11 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _RestartComplete_QNAME = new QName("http://testServer.MTS/", "restartComplete");
     private final static QName _SendRecordResponse_QNAME = new QName("http://testServer.MTS/", "sendRecordResponse");
     private final static QName _TestMessage_QNAME = new QName("http://testServer.MTS/", "testMessage");
     private final static QName _TestMessageResponse_QNAME = new QName("http://testServer.MTS/", "testMessageResponse");
+    private final static QName _RestartCompleteResponse_QNAME = new QName("http://testServer.MTS/", "restartCompleteResponse");
     private final static QName _SendRecord_QNAME = new QName("http://testServer.MTS/", "sendRecord");
     private final static QName _State_QNAME = new QName("http://testServer.MTS/", "state");
     private final static QName _StateResponse_QNAME = new QName("http://testServer.MTS/", "stateResponse");
@@ -36,6 +38,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link RestartCompleteResponse }
+     * 
+     */
+    public RestartCompleteResponse createRestartCompleteResponse() {
+        return new RestartCompleteResponse();
     }
 
     /**
@@ -71,6 +81,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link RestartComplete }
+     * 
+     */
+    public RestartComplete createRestartComplete() {
+        return new RestartComplete();
+    }
+
+    /**
      * Create an instance of {@link StateResponse }
      * 
      */
@@ -103,6 +121,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RestartComplete }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://testServer.MTS/", name = "restartComplete")
+    public JAXBElement<RestartComplete> createRestartComplete(RestartComplete value) {
+        return new JAXBElement<RestartComplete>(_RestartComplete_QNAME, RestartComplete.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SendRecordResponse }{@code >}}
      * 
      */
@@ -127,6 +154,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://testServer.MTS/", name = "testMessageResponse")
     public JAXBElement<TestMessageResponse> createTestMessageResponse(TestMessageResponse value) {
         return new JAXBElement<TestMessageResponse>(_TestMessageResponse_QNAME, TestMessageResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RestartCompleteResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://testServer.MTS/", name = "restartCompleteResponse")
+    public JAXBElement<RestartCompleteResponse> createRestartCompleteResponse(RestartCompleteResponse value) {
+        return new JAXBElement<RestartCompleteResponse>(_RestartCompleteResponse_QNAME, RestartCompleteResponse.class, null, value);
     }
 
     /**

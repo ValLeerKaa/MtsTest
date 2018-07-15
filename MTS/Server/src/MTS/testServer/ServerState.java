@@ -5,6 +5,11 @@ public class ServerState {
     private boolean paused;
     private boolean clientRestartRequired;
 
+    public ServerState getState()
+    {
+        return this;
+    }
+
     public boolean isActive() {
         return active;
     }
@@ -17,15 +22,18 @@ public class ServerState {
         return clientRestartRequired;
     }
 
-    public void setActive(boolean active) {
+    public ServerState setActive(boolean active) {
         this.active = active;
+        return this;
     }
 
-    public void setPaused(boolean paused) {
+    public ServerState setPaused(boolean paused) {
         this.paused = paused;
+        return this;
     }
 
-    public void setClientRestartRequired(boolean clientRestartRequired) {
+    public ServerState setClientRestartRequired(boolean clientRestartRequired) {
         this.clientRestartRequired = clientRestartRequired;
+        return this;
     }
 }
